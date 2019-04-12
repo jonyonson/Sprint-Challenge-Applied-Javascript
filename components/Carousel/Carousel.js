@@ -2,6 +2,7 @@ class Carousel {
   constructor(element) {
     this.element = element;
     this.currentImageIndex = 0;
+    this.images = element.querySelectorAll('img');
     this.displayCurrentImage();
 
     this.leftButton = element.querySelector('.left-button');
@@ -32,9 +33,8 @@ class Carousel {
   }
 
   displayCurrentImage() {
-    const images = document.querySelectorAll('img');
-    images.forEach(img => (img.style.display = 'none'));
-    const currentImage = images[this.currentImageIndex];
+    this.images.forEach(img => (img.style.display = 'none'));
+    const currentImage = this.images[this.currentImageIndex];
     currentImage.style.display = 'flex';
   }
 }
